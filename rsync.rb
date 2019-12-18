@@ -38,6 +38,8 @@ def sync(direction, source, dest, args, files: nil)
     if files.nil?
         command << "-R #{source} "
     else
+        files.each { |file| file.prepend(source) }
+        files = files.join(' ')
         command << "#{files} "
     end
 
@@ -107,7 +109,7 @@ remote = use_current(
 if target['files'].nil?
     files = nil
 else
-    files = target['files'].split(',').join(' ')
+    files = target['files'].split(',')
 end
 
 # Finally, sync using all the args.
