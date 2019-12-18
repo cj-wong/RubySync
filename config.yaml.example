@@ -1,0 +1,25 @@
+device: # Leave blank if using hostname.
+paths:
+  root: # Root path if applicable. Use a period to indicate relative root.
+    # You may input "USER" to indicate using the current user.
+    local:  # Local root.
+    remote: # Remote root.
+  setA: # A target: a set of paths. These are the 2nd arg on the commandline.
+    # Full paths with periods to indicate relative root.
+    # If root is set, use only relative paths from root and periods if
+    # applicable. If either path matches the respective root, a sole period is
+    # valid. You may input "DEVICE" to indicate using the current device.
+    local:
+    remote:
+    files: # Optional. A comma-separated string of file names specifically.
+args: [ # Args for rsync.
+  common: [ # Args common between backup and restore.
+
+  ],
+  backup: [ # Args for backup.
+
+  ],
+  restore: [ # Args for restore.
+
+  ]
+]
