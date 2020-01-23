@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a wrapper of `rsync` in Ruby. The goal of *rsync.rbx* is to simplify backups with a central remote, e.g. a NAS. Each machine that backs up to the central remote should be quick to setup using this wrapper by modifying the appropriate targets and fields.
+This is a wrapper of `rsync` in Ruby. The goal of *rsync.rb* is to simplify backups with a central remote, e.g. a NAS. Each machine that backs up to the central remote should be quick to setup using this wrapper by modifying the appropriate targets and fields.
 
 ### Why
 
@@ -17,11 +17,13 @@ Python fits these conditions readily, but I wanted to try a new language and I a
 ## Usage
 
 ```
-$ ruby rsync.rb direction target
+$ ruby rsync.rb direction target[,another,etc]
 
 Arguments:
-  direction     either 'backup' or 'restore'; affects `source` and `dest`
-  target        a section in config.yaml; e.g. 'setA' in the example
+  direction     either 'backup' or 'restore'; in 'backup' mode, `source`
+                is local and `target` is remote; reversed in `restore` mode
+  target        a section in config.yaml, e.g. 'setA' in the example;
+                can be a comma-delimited string of targets
 
 ```
 
@@ -33,7 +35,9 @@ This code was tested using the following:
 
 ## Setup
 
-1. [Configure](config.yaml.example) your settings and rename the file to `config.yaml`.
+1. [Configure](config.yaml.example) your settings, creating extra targets as necessary, and rename the file to `config.yaml`.
+
+⚠️ Target names must **not** include commas! 
 
 ## Disclaimer
 
