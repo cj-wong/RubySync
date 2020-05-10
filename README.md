@@ -17,7 +17,7 @@ Python fits these conditions readily, but I wanted to try a new language and I a
 ## Usage
 
 ```
-$ ruby rsync.rb direction target[,another,etc]
+$ ruby rsync.rb direction target[,target,...]
 
 Arguments:
   direction     either 'backup' or 'restore'; in 'backup' mode, `source`
@@ -31,7 +31,7 @@ Arguments:
 
 This code was tested using the following:
 
-- Ruby 2.3+ on Debian *stretch* & Ubuntu *bionic*
+- Ruby 2.3+ on Debian 9 *stretch* & Ubuntu 18.04 LTS *bionic*
 
 ## Setup
 

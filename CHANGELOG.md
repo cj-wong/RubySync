@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.4] - 2020-05-10
+### Fixed
+- Instead of relying solely on `ENV['USER']` for replacing `USER` with the actual user (which fails when run in `cron`), an intermediary variable `user` (in `main()`) is set to `ENV['USER']` first and, if that's empty, `x%( whoami ).chomp` next.
+
 ## [1.0.3] - 2020-01-23
 ### Added
 - "Batch" functionality added; now, you can call `rsync.rb backup main,extra,etc` by separating targets with commas.

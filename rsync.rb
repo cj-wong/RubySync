@@ -122,11 +122,16 @@ def main()
                 raise ArgumentError, "#{target} is not a valid target"
             end
 
+            user = ENV['USER']
+            if user.nil?
+                user = %x( whoami ).chomp
+            end
+
             path_local = update_path(
                 root['local'],
                 target['local'],
                 'USER',
-                ENV['USER'],
+                user,
             )
             path_target = update_path(
                 root['remote'],
